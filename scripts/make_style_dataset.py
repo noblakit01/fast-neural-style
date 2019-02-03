@@ -49,17 +49,6 @@ def add_data(h5_file, image_dir, prefix, args):
     while True:
       idx, filename = input_queue.get()
       img = imread(filename)
-      try:
-        # First crop the image so its size is a multiple of max_resize
-        H, W = img.shape[0], img.shape[1]
-        H_crop = H - H % args.max_resize
-        W_crop = W - W % args.max_resize
-        img = img[:H_crop, :W_crop]
-        img = imresize(img, (args.height, args.width))
-      except (ValueError, IndexError) as e:
-        print filename
-        print img.shape, img.dtype
-        print e
       input_queue.task_done()
       output_queue.put((idx, img))
   
