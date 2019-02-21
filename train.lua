@@ -251,8 +251,10 @@ cmd:option('-backend', 'cuda', 'cuda|opencl')
       end
     end
 
-    print(string.format('Epoch %f, Iteration %d / %d, loss = %f',
+    if t % 5000 == 0 then
+      print(string.format('Epoch %f, Iteration %d / %d, loss = %f',
           epoch, t, opt.num_iterations, loss[1]), optim_state.learningRate)
+    end
 
     if t % opt.checkpoint_every == 0 then
       -- Check loss on the validation set
