@@ -60,6 +60,7 @@ function M.build_model(opt)
   local model = nn.Sequential()
   
   for i, v in ipairs(arch) do
+    print(i, v)
     local first_char = string.sub(v, 1, 1)
     local layer, next_dim
     local needs_relu = true
