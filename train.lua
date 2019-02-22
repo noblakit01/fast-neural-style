@@ -93,6 +93,7 @@ cmd:option('-backend', 'cuda', 'cuda|opencl')
     model = torch.load(opt.resume_from_checkpoint).model:type(dtype)
   else
     print('Initializing model from scratch')
+    print(opt)
     model = models.build_model(opt):type(dtype)
   end
   if use_cudnn then cudnn.convert(model, cudnn) end
