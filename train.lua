@@ -17,7 +17,7 @@ Train a feedforward style transfer model
 --]]
 
 -- Generic options
-cmd:option('-arch', 'c9s1-32,d64,d128,R128,R128,R128,R128,R128,u64,u32,c9s1-3')
+cmd:option('-arch', 'c9s1-16,d32,d64,R64,R64,R64,R64,R64,u32,u16,c9s1-3')
 cmd:option('-use_instance_norm', 1)
 cmd:option('-task', 'style', 'style|upsample')
 cmd:option('-h5_file', 'data/ms-coco-256.h5')
